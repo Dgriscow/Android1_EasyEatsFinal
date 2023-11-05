@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Android1_EasyEatsFinal</string>
+
+    <!--Main Acrivity Strings-->
+
+    <string name="foodName">Enter A name For the New Food</string>
+    <string name="msg">Food Entry</string>
+    <string name="screenTitle">Food Entry</string>
+
+    <string name="caltip">Calories</string>
+    <string name="proteintip">Protein</string>
+    <string name="fattip">Fat</string>
+    <string name="carbtip">Carbs</string>
+
+    <string name="ingEntry">Enter Ingredients Here</string>
+
+    <string name="submit">Submit Food</string>
+
+
+    <!--          ||||||||||||||||||||||||||||||           -->
+
+    <string name="curateTitle">Curate New Foods</string>
+    <string name="macroIdentifier">Meal Macros Per Serving</string>
+
+    <string name="curateButton">New Food</string>
+
+</resources>
