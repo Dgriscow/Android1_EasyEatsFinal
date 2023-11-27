@@ -6,122 +6,180 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/entryFat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="@string/fattip"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/entryCarbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryProtein" />
+
+    <EditText
+        android:id="@+id/entryCarbs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="@string/carbtip"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/entryImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryFat" />
+
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="184dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="47dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="19dp"
         android:text="@string/screenTitle"
         android:textAlignment="viewStart"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintBottom_toBottomOf="@+id/toCurate"
         app:layout_constraintEnd_toStartOf="@+id/toCurate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/toCurate" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/entryName"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
-        android:hint="@string/proteintip"
+        android:hint="@string/foodName"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText4"
+        app:layout_constraintBottom_toTopOf="@+id/entryCalorie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAddNewFood" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/entryImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
         android:layout_marginBottom="9dp"
         android:ems="10"
-        android:hint="@string/caltip"
+        android:hint="@string/tipImage"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
+        app:layout_constraintBottom_toTopOf="@+id/lvNewIngs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/entryCarbs" />
 
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="225dp"
-        android:ems="10"
-        android:hint="@string/carbtip"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText5"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbAddIng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        app:backgroundTint="@color/design_default_color_secondary_variant"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintStart_toEndOf="@+id/entryIngredient"
+        app:layout_constraintTop_toBottomOf="@+id/lvNewIngs"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/entryIngredient"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="11dp"
-        android:ems="10"
-        android:hint="@string/fattip"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
-
-    <EditText
-        android:id="@+id/editTextText5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="3dp"
         android:ems="10"
         android:hint="@string/ingEntry"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toStartOf="@+id/fbAddIng"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="25dp"
-        android:clickable="true"
-        app:backgroundTint="@color/design_default_color_secondary_variant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextText5"
-        app:layout_constraintTop_toTopOf="@+id/editTextText5"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:layout_constraintTop_toBottomOf="@+id/lvNewIngs" />
 
     <Button
         android:id="@+id/toCurate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="13dp"
         android:backgroundTint="#85F9B5"
         android:text="To New Foods Screen"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddNewFood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/lvNewIngs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="496dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/fbAddIng"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddNewFood"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginEnd="67dp"
+        android:backgroundTint="#85F9B5"
+        android:text="@string/btnAddFood"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/entryName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toCurate" />
+
+    <EditText
+        android:id="@+id/entryCalorie"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="@string/caltip"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/entryProtein"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryName" />
+
+    <EditText
+        android:id="@+id/entryProtein"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="21dp"
+        android:ems="10"
+        android:hint="@string/proteintip"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/entryFat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryCalorie" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

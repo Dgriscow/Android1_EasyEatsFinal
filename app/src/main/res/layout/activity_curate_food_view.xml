@@ -63,16 +63,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back2Input"
+        android:layout_width="263dp"
+        android:layout_height="277dp"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="183dp"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
@@ -157,6 +151,8 @@
         android:id="@+id/textView3"
         android:layout_width="280dp"
         android:layout_height="56dp"
+        android:background="@drawable/rounded_text_box"
+        android:gravity="center"
         android:text="@string/macroIdentifier"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_background"
@@ -164,16 +160,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/foodCard"
         app:layout_constraintEnd_toEndOf="@+id/foodCard"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="@+id/foodCard"
         app:layout_constraintTop_toTopOf="@+id/foodCard"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.786" />
+
 
     <Button
         android:id="@+id/button"
         android:layout_width="241dp"
         android:layout_height="74dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#85F9B5"
         android:text="@string/curateButton"
         android:textColor="@color/black"
@@ -185,14 +182,44 @@
         android:id="@+id/back2Input"
         android:layout_width="169dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="7dp"
         android:backgroundTint="#85F9B5"
-        android:text="To Input Screen"
+        android:text="@string/toinput"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/foodCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/back2Input2"
+        android:layout_width="199dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="7dp"
+        android:backgroundTint="#85F9B5"
+        android:text="@string/toMD"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <TextView
+        android:id="@+id/txtcuratedFoodName"
+        android:layout_width="235dp"
+        android:layout_height="49dp"
+        android:text="placeholder"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/foodCard"
+        app:layout_constraintTop_toTopOf="@+id/foodCard"
+        app:layout_constraintVertical_bias="0.034"
+        tools:layout_editor_absoluteX="88dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

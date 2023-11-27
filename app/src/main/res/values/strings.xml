@@ -1,27 +1,59 @@
 <resources>
+
+<!--    Shared Preferences Keys-->
+    <string name="FoodCollection">FoodCollection</string>
+
+
     <string name="app_name">Android1_EasyEatsFinal</string>
 
-    <!--Main Acrivity Strings-->
+    <!--    input Button Texts-->
+    <string name="toinput">To Input Screen</string>
+    <string name="toMD">To Macro Dashboard</string>
+    <string name="btoCurate">Back To Curate</string>
 
-    <string name="foodName">Enter A name For the New Food</string>
+
+    <!--Add new Food Strings-->
+
+    <string name="btnAddFood">Add The Food</string>
+
+    <string name="foodName">Enter A Name For the New Food</string>
     <string name="msg">Food Entry</string>
     <string name="screenTitle">Food Entry</string>
+
 
     <string name="caltip">Calories</string>
     <string name="proteintip">Protein</string>
     <string name="fattip">Fat</string>
     <string name="carbtip">Carbs</string>
+    <string name="tipImage">Image</string>
 
     <string name="ingEntry">Enter Ingredients Here</string>
 
     <string name="submit">Submit Food</string>
 
 
-    <!--          ||||||||||||||||||||||||||||||           -->
+    <!--         Curate Food Screen Strings          -->
 
     <string name="curateTitle">Curate New Foods</string>
     <string name="macroIdentifier">Meal Macros Per Serving</string>
 
     <string name="curateButton">New Food</string>
+
+
+<!--    Macro Dashboard Screen String               -->
+    <string name="dbTitle">Macro Dashboard</string>
+
+    <string name="cEaten">Calories Eaten</string>
+    <string name="cLeft">Calories Left</string>
+
+    <string name="pEaten">Protein Eaten</string>
+    <string name="pLeft">Protein Left</string>
+
+    <string name="fEaten">Fat Eaten</string>
+    <string name="fLeft">Fat Left</string>
+
+    <string name="caEaten">Carbs Eaten</string>
+    <string name="caLeft">Carbs Left</string>
+
 
 </resources>
