@@ -1,7 +1,7 @@
 <resources>
 
 <!--    Shared Preferences Keys-->
-    <string name="FoodCollection">FoodCollection</string>
+    <string name="FoodsKey">PersonalCollection</string>
 
 
     <string name="app_name">Android1_EasyEatsFinal</string>

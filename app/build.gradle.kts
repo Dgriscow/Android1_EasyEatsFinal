@@ -46,4 +46,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.google.code.gson:gson:2.8.9") // Use the latest version available
 
+    implementation ("com.squareup.picasso:picasso:2.5.2")
+
+
+
 }

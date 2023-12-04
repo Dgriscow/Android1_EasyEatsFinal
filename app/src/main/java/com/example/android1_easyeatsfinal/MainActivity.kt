@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
-import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
@@ -71,6 +70,8 @@ class MainActivity : AppCompatActivity() {
             calEntry.text.clear()
 
             proteinEntry.text.clear()
+
+            fatEntry.text.clear()
 
             carbsEntry.text.clear()
 
@@ -141,7 +142,7 @@ class MainActivity : AppCompatActivity() {
                 clearInputs()
 
                 //Add the new foods to the preferences
-                addNewFoodSet(newFood)
+                addNewFood(newFood)
 
 
 
@@ -166,29 +167,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //Todo clear all inputs and values on screen
-    private fun clearInputsOLD(){
 
-        //Entry Values repeated
-        val nameEntry = findViewById<EditText>(R.id.entryName)
-
-        val calEntry = findViewById<EditText>(R.id.entryCalorie)
-        val proteinEntry = findViewById<EditText>(R.id.entryProtein)
-        val fatEntry = findViewById<EditText>(R.id.entryFat)
-        val carbsEntry = findViewById<EditText>(R.id.entryCarbs)
-
-        val imageURlEntry = findViewById<EditText>(R.id.entryImage)
-
-        val lvIngredientInputs = findViewById<ListView>(R.id.lvNewIngs)
-
-        val ingredientEntry = findViewById<EditText>(R.id.entryIngredient)
-
-
-
-
-
-
-    }
 
 
     private fun checkInputs():Boolean{
@@ -237,7 +216,7 @@ class MainActivity : AppCompatActivity() {
         //Fat Empty check
         if (fatEntry.text.toString().isEmpty()){
             //Return Error When empty
-            fatEntry.error= "Enter Calorie Entry Here"
+            fatEntry.error= "Enter Fat Entry Here"
             fatEntry.requestFocus()
             return false
         }
@@ -277,35 +256,105 @@ class MainActivity : AppCompatActivity() {
     Get the all the latest foods
      */
 
-    fun addNewFoodSet(newFood:Food){
+    fun addNewFood(newFood: Food) {
+
+        val FOODKEY = getString(R.string.FoodsKey)
+        //shared Preference editor of the Foods preference
+        val sharedPrefs: SharedPreferences = this.getSharedPreferences("User", Context.MODE_PRIVATE)
 
         //void function that JUST adds a new food to the food set
 
         //first grab all the old preferences and make a variable for it
 
 
-        val foodsKey = getString(R.string.FoodCollection)
+        //Procedure:
+        /*
+        1: retrieve latest Array of Food objects
+        2: add the new food item to the array
+        3: convert the array into a string set of the Json format
+        4: put the new set back into the preferences
 
-        val sharedPrefs: SharedPreferences = this.getSharedPreferences(foodsKey, Context.MODE_PRIVATE)
+         */
 
         //TODO get all foods that were entered into the preference
+        var currentFoods = getCurrentFoods()
+        //TODO with the arrray loaded, add the new food item, then convert the entire array back to json
+        //Convert the array to a mutable array
+        //add the New food to the custimizableFoods
 
-        //TODO with the arrray loaded, add the food item (converted into json) to the array of items
+
+        //Preform a null check, null is returned when the array is empty,
+        val modifiableList = currentFoods.toMutableList()
+        modifiableList.add(newFood)
+        //TODO convert the array to a json string
+        val newFoodsJson = arrayToJsonString(modifiableList.toTypedArray())
+
+        //TODO set the Foods Preferences to the new updated current foods
+        with(sharedPrefs.edit()) {
+            putString(FOODKEY, newFoodsJson)
+            apply()
+        }
+
 
 
     }
 
-    //Takes a JSon string and returns a Array of Food Items
-    fun jsonStringToArray(jsonString: String): Array<Food>? {
-        val gson = Gson()
-        // The second parameter of fromJson specifies the type of the object to be converted to
-        return gson.fromJson(jsonString, Array<Food>::class.java)
-    }
+
 
     //Takes a object and converts it to Json
     fun foodToJson(newFood: Food): String {
         val gson = Gson()
         return gson.toJson(newFood)
     }
+
+    fun getCurrentFoods(): Array<Food> {
+        val gson = Gson()
+
+        val FOODKEY = getString(R.string.FoodsKey)
+        //shared Preference editor of the Foods preference
+        val sharedPrefs: SharedPreferences = this.getSharedPreferences("User", Context.MODE_PRIVATE)
+
+        // Default value (an empty set in this case), in case anything goes wrong or the preference is empty
+        val defaultValue: String = ""
+
+        // Retrieve the set from SharedPreferences
+        //CF = Current Foods
+        val retrivedCFString: String? = sharedPrefs.getString(FOODKEY, defaultValue)
+
+        //Convert the String Set Into a Array of Foods
+        //Loop through each item in the set and convert it to a Array
+
+        //make sure that the string set isint Null, then preform loop addition
+
+        //Finally once the Loop is complete, return the full array of Food Items
+        var arrayedJson = jsonStringToArray(retrivedCFString)
+
+        return arrayedJson
+
+
+    }
+
+    // Function to convert array to JSON string
+    fun arrayToJsonString(array: Array<Food>): String {
+        val gson = Gson()
+        return gson.toJson(array)
+    }
+
+    // Function to convert JSON string to array
+    fun jsonStringToArray(jsonString: String?): Array<Food> {
+        val gson = Gson()
+        // The second parameter of fromJson specifies the type of the object to be converted to
+        var foodArray = gson.fromJson(jsonString, Array<Food>::class.java)
+        //Null check, if the returned Value is null use a empty array
+        if (foodArray == null){
+            val tempFood = Food()
+            var temp:Array<Food> = arrayOf<Food>(tempFood)
+            foodArray = temp
+
+        }
+
+        return foodArray
+    }
+
 
 }
